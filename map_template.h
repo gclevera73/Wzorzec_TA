@@ -24,6 +24,12 @@ public:
 	{
 		pierwszy_elem = nullptr;
 	}
+
+	~map_template()
+	{
+	
+	}
+
 	
 	void Add(ID identyfikator2, TYP obiekt2)
 	{
