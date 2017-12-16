@@ -6,15 +6,19 @@
 class Employee
 {
 public:
-	std::string nazwa, stanowisko;
-	int wiek;
+	std::string Name, Position;
+	int Age;
 
 	/* konstruktor */
+	Employee ()
+	{
+	}
+
 	Employee ( std::string nazwa2, std::string stanowisko2, int wiek2 )
 	{
-		nazwa = nazwa2;
-		stanowisko = stanowisko2;
-		wiek = wiek2;	
+		Name = nazwa2;
+		Position = stanowisko2;
+		Age = wiek2;	
 	}
 };
 #endif	/* __EMPLOYEE_H__ */
