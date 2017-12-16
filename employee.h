@@ -8,6 +8,8 @@ class Employee
 public:
 	std::string nazwa, stanowisko;
 	int wiek;
+
+	/* konstruktor */
 	Employee ( std::string nazwa2, std::string stanowisko2, int wiek2 )
 	{
 		nazwa = nazwa2;
