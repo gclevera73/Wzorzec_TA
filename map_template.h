@@ -54,8 +54,23 @@ public:
 		}
 	}
 	
-	TYP* Find(ID identyfikator)
+	TYP* Find(ID identyfikator2)
 	{
+		Lista* tmp = pierwszy_elem;
+		if(tmp == nullptr)
+		{
+			return nullptr;		//dorobic wyjatki
+		} 
 		
+		while(tmp->identyfikator != identyfikator2 && tmp->next != nullptr)
+		{
+			tmp = tmp->next;
+		}
+		
+		if(tmp->identyfikator == identyfikator2)
+		{
+			return &tmp->obiekt;
+		}
+		return nullptr;
 	}
 };
