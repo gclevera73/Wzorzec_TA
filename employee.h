@@ -20,5 +20,16 @@ public:
 		Position = stanowisko2;
 		Age = wiek2;	
 	}
+
+	friend std::ostream& operator<< (std::ostream & o, const Employee & e)
+	{
+		o << e.Name << " " << e.Position << " " << e.Age;
+		return o;
+	};
+
+
+
 };
+
+
 #endif	/* __EMPLOYEE_H__ */

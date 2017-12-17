@@ -6,16 +6,23 @@ template <typename ID, class TYP>
 class map_template
 {
 public:
-	
+	map_template(map_template &inny) //konstruktor kopiujący
+	{
+		pierwszy_elem = inny.pierwszy_elem;
+		if(pierwszy_elem != nullptr)
+			pierwszy_elem->ref++;
+	}	
 	struct Lista
 	{
 		Lista()
 		{
 			next = nullptr;
+			ref = 0;
 		}
 		Lista* next;
 		ID identyfikator;
 		TYP obiekt;
+		unsigned int ref;
 	};
 	
 	Lista* pierwszy_elem;
@@ -27,7 +34,22 @@ public:
 
 	~map_template()
 	{
-	
+		if(pierwszy_elem != nullptr)
+		{
+			if(pierwszy_elem->ref != 0)
+			{
+				pierwszy_elem->ref--;
+				return;
+			}
+			Lista* tmp = pierwszy_elem;
+			while(tmp->next != nullptr)
+			{
+				Lista* tmp2 = tmp;
+				tmp = tmp->next;
+				delete tmp2;
+			}
+			delete tmp;
+		}
 	}
 
 	
@@ -73,4 +95,25 @@ public:
 		}
 		return nullptr;
 	}
+	
+
+	friend std::ostream& operator<< (std::ostream & o, const map_template & e)
+	{
+		if(e.pierwszy_elem != nullptr)
+		{
+			Lista* tmp = e.pierwszy_elem;
+			o << tmp->identyfikator << " " << tmp->obiekt << endl;
+			while(tmp->next != nullptr)
+			{
+				tmp = tmp->next;
+				o << tmp->identyfikator << " " << tmp->obiekt << endl;
+			}
+		}
+		return o;
+	};
+
+	
+	
+
 };
+
