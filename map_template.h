@@ -10,7 +10,7 @@ public:
 	{
 		pierwszy_elem = inny.pierwszy_elem;
 		if(pierwszy_elem != nullptr)
-			pierwszy_elem->ref++;
+		pierwszy_elem->ref++;
 	}	
 	struct Lista
 	{
@@ -81,7 +81,7 @@ public:
 		Lista* tmp = pierwszy_elem;
 		if(tmp == nullptr)
 		{
-			return nullptr;		//dorobic wyjatki
+			return nullptr;
 		} 
 		
 		while(tmp->identyfikator != identyfikator2 && tmp->next != nullptr)
